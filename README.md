@@ -23,6 +23,7 @@ You'll need to have [nix](https://nixos.org) installed on your machine.
     ``` 
 
 Running the fedimint client daemon script will
-    - Create a `./fm_db/fm.db` directory if it doesn't exist. 
-    - Install the `fedimint-clientd` binary if it doesn't exist.
+
+- Create a `./fm_db/fm.db` directory if it doesn't exist. 
+- Install the `fedimint-clientd` binary if it doesn't exist.
 
