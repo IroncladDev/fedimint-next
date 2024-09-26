@@ -1,18 +1,21 @@
 #!/bin/bash
 
-# Check if the directory exists
+# Create fm_db/fm.db directory if it doesn't exist
 if [ ! -d "./fm_db/fm.db" ]; then
-    # Create the directory
     mkdir -p "./fm_db/fm.db"
     echo "Directory created."
-else
-    echo "Directory already exists."
 fi
 
-if ! command -v fedimint-clientd >/dev/null 2>&1; then
-    echo "fedimint-clientd not installed. Installing..."
-    FEDIMINT_BUILD_FORCE_GIT_HASH=1 cargo install fedimint-clientd
-else
-    echo "fedimint-clientd is installed. Running..."
-    RUST_LOG=debug fedimint-clientd
+# Check if cargo is installed
+if ! command -v cargo >/dev/null 2>&1; then
+    echo "Cargo not installed, ngmi"
+    exit 1
 fi
+
+# Install fedimint-clientd if not found on system, and/or runs it
+if ! command -v fedimint-clientd >/dev/null 2>&1; then
+    echo "Installing fedimint-clientd..."
+    FEDIMINT_BUILD_FORCE_GIT_HASH=1 cargo install fedimint-clientd
+fi
+
+RUST_LOG=debug fedimint-clientd
