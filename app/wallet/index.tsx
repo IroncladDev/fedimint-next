@@ -18,3 +18,11 @@ const WalletContainer = styled("div", {
 const H2 = styled("h2", {
     base: "text-2xl font-bold",
 });
+
+export const Container = styled("div", {
+    base: "flex flex-col gap-2 px-4 py-3 rounded-lg border border-gray-800",
+});
+
+export const H3 = styled("h3", {
+    base: "font-semibold text-lg",
+});
