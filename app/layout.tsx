@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Wallet from "./wallet";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -13,7 +14,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <div className="flex min-h-screen w-full divide-x divide-gray-700 align-center">
+                    <Wallet />
+                    <div className="flex flex-col grow h-screen overflow-y-auto">
+                        {children}
+                    </div>
+                </div>
+            </body>
         </html>
     );
 }
