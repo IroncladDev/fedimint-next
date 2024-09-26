@@ -7,9 +7,6 @@ export default function Home() {
             <Title>Fedimint 🤝 Next.js Examples</Title>
             <List>
                 <Item>
-                    <Link href="/multimint">Multimint</Link>
-                </Item>
-                <Item>
                     <Link href="/betting">Betting</Link>
                 </Item>
                 <Item>
