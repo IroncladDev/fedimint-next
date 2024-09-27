@@ -12,7 +12,6 @@
     },
     "dependencies": {
         "@fedimint/core-web": "^0.0.0-canary-20240924235741",
-        "bolt11": "^1.4.1",
         "fedimint-ts": "^0.3.2",
         "next": "14.2.13",
         "react": "^18",
