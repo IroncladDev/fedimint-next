@@ -9,3 +9,6 @@ export default async function Page() {
 
     return <MultimintContent info={info} />;
 }
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
