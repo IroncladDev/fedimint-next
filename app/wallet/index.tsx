@@ -6,7 +6,7 @@ import { styled } from "react-tailwind-variants";
 export default function Wallet() {
     return (
         <WalletContainer>
-            <H2>Fedimint Wallet</H2>
+            <H2>Fedimint Web Wallet</H2>
         </WalletContainer>
     );
 }
