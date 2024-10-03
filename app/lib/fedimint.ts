@@ -1,8 +1,19 @@
 import { FedimintClientBuilder } from "fedimint-ts";
 
-// Create a new fedimint client. If no federation id is provided, it will use the default federation id
+/**
+ * Create a new client to interact with the Fedimint Clientd
+ *
+ * - Needs a default federation invite code if not joined to any fedimints
+ * - Uses URL + password auth (from environment variables)
+ * - Needs a default federation ID to be passed initially
+ *
+ * Uses the default (first) lightning gateway after being built
+ */
+
 export const createFedimintClient = async (
-    federationId: string = process.env.DEFAULT_FEDERATION_ID as string,
+    // Defaults to the federation ID provided in environment variables
+    // Can be overridden by passing a different federation ID
+    federationId: string = process.env.DEFAULT_FEDERATION_ID as string
 ) => {
     const clientBuilder = new FedimintClientBuilder()
         .setBaseUrl("http://" + (process.env.FEDIMINT_CLIENTD_ADDR as string))

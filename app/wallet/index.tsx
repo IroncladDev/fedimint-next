@@ -38,7 +38,7 @@ export default function Wallet() {
         <WalletContainer>
             {wallet ? (
                 <>
-                    <H2>Fedimint Wallet</H2>
+                    <H2>Fedimint Web Wallet</H2>
                     <WalletBalance wallet={wallet} />
                     <WalletLightning wallet={wallet} />
                     <WalletEcash wallet={wallet} />

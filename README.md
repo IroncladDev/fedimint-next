@@ -1,6 +1,6 @@
 # Fedimint & Next.js Examples
 
-A starter template for building on Fedimint with Next.js
+Some basic examples utilizing the [Fedimint Web SDK](https://web.fedimint.org/) and the [Fedimint Clientd](https://github.com/fedimint/fedimint-clientd) in a Next.js app.
 
 ## Getting Started
 
