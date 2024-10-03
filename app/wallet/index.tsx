@@ -1,12 +1,51 @@
 "use client";
 
+import { FedimintWallet } from "@fedimint/core-web";
+import { useEffect, useState } from "react";
+import WalletLightning from "./lightning";
+import WalletEcash from "./ecash";
+import WalletBalance from "./balance";
 import { styled } from "react-tailwind-variants";
 
-// Fedimint Web Wallet
 export default function Wallet() {
+    const [wallet, setWallet] = useState<FedimintWallet | null>();
+
+    useEffect(() => {
+        // Load the fedimint wallet
+        async function loadWallet() {
+            const wal = new FedimintWallet();
+
+            wal.setLogLevel("debug");
+
+            // Whether the wallet has successfully been opened
+            const isOpen = await wal.open();
+
+            // If not, join a federation by its invite code
+            if (!isOpen) {
+                await wal.joinFederation(
+                    // Same one in .env
+                    "fed11qgqzygrhwden5te0v9cxjtnzd96xxmmfdec8y6twvd5hqmr9wvhxuet59upqzg9jzp5vsn6mzt9ylhun70jy85aa0sn7sepdp4fw5tjdeehah0hfmufvlqem",
+                );
+            }
+
+            setWallet(wal);
+        }
+
+        loadWallet();
+    }, []);
+
     return (
         <WalletContainer>
-            <H2>Fedimint Wallet</H2>
+            {wallet ? (
+                <>
+                    <H2>Fedimint Wallet</H2>
+                    <WalletBalance wallet={wallet} />
+                    <WalletLightning wallet={wallet} />
+                    <WalletEcash wallet={wallet} />
+                </>
+            ) : (
+                <H2>Loading...</H2>
+            )}
         </WalletContainer>
     );
 }
